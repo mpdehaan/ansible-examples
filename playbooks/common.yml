@@ -1,0 +1,15 @@
+# common things that should be true on all of the nodes
+# regardless of what class they fall into
+
+- name: $item should be installed
+  action: yum pkg=$item state=installed
+  with_items:
+     - ntp
+     - ntpdate
+  notify:
+     - restart ntpd
+
+- name: ntp should be running
+  action: service name=ntpd state=running
+
+
