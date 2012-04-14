@@ -1,0 +1,44 @@
+---
+# This is a demo for Ansible playbooks
+# http://ansible.github.com
+# 
+# this demo playbook is for CentOS6 + EPEL
+# it could configure yum.repos.d via templates
+# but didn't want to reconfigure any system
+# you might run it on without asking.
+#
+# Creative Commons 3.0
+# Michael DeHaan <michael.dehaan@gmail.com>
+
+##########################################################
+# Configure all hosts to be monitored
+
+- hosts: nodes
+  user: root
+  tasks:
+     # what roles to apply?
+     - include: common.yml
+     - include: monitored_server.yml
+  handlers:
+     - include: handlers.yml
+
+############################################################
+# Configure the monitoring server.  Note that this assumes
+# CentOS 6 with EPEL configured.  Ansible can obviously
+# configure yum.repos.d but this is left off to keep
+# the example short.
+
+- hosts: ganglia.example.com
+  user: root
+  vars:
+     # ganglia requires a node running gmetad to talk to.
+     one_node_in_ganglia_cluster: 127.0.0.1
+  tasks:
+     # what roles to apply?
+     - include: common.yml
+     - include: monitoring_server.yml
+  handlers:
+    - include: handlers.yml
+
+    
+
