@@ -12,8 +12,10 @@
 
 ##########################################################
 # Configure all hosts to be monitored
+# (and just for this demo, also include the monitoring server
+# in that list)
 
-- hosts: nodes
+- hosts: nodes;ganglia.example.com
   user: root
   tasks:
      # what roles to apply?
@@ -32,7 +34,7 @@
   user: root
   vars:
      # ganglia requires a node running gmetad to talk to.
-     one_node_in_ganglia_cluster: 127.0.0.1
+     one_node_in_ganglia_cluster: ganglia.example.com
   tasks:
      # what roles to apply?
      - include: tasks/common.yml

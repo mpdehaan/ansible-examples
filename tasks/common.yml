@@ -1,6 +1,13 @@
 # common things that should be true on all of the nodes
 # regardless of what class they fall into
 
+# this next step so we can use ansible templates.  Templating
+# will happen server-side in a future release.  Not
+# required if not using templates.
+
+- name: python-simplejson should be installed
+  action: yum pkg=python-simplejson state=installed
+
 - name: $item should be installed
   action: yum pkg=$item state=installed
   with_items:
