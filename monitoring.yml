@@ -17,10 +17,10 @@
   user: root
   tasks:
      # what roles to apply?
-     - include: common.yml
-     - include: monitored_server.yml
+     - include: tasks/common.yml
+     - include: tasks/monitored_server.yml
   handlers:
-     - include: handlers.yml
+     - include: handlers/handlers.yml
 
 ############################################################
 # Configure the monitoring server.  Note that this assumes
@@ -35,10 +35,10 @@
      one_node_in_ganglia_cluster: 127.0.0.1
   tasks:
      # what roles to apply?
-     - include: common.yml
-     - include: monitoring_server.yml
+     - include: tasks/common.yml
+     - include: tasks/monitoring_server.yml
   handlers:
-    - include: handlers.yml
+    - include: handlers/handlers.yml
 
     
 

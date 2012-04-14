@@ -17,7 +17,7 @@ When ready, read the files in this repo.
 
 Should you wish to execute them, the syntax is simple:
 
-  * ansible-playbook playbooks/monitoring.yml
+  * ansible-playbook monitoring.yml
 
 This example is more or less just illustrative, so you may wish
 to make changes to adapt the configuration to your environment.

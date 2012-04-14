@@ -4,7 +4,7 @@
   action: yum pkg=ganglia-gmond state=installed
 
 - name: configure gmond
-  action: template src=../templates/etc/ganglia/gmond.conf dest=/etc/ganglia/gmond.conf owner=root group=root
+  action: template src=templates/etc/ganglia/gmond.conf dest=/etc/ganglia/gmond.conf owner=root group=root
   notify:
       - restart gmond
 

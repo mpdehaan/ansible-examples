@@ -12,7 +12,7 @@
      - restart httpd
 
 - name: configure gmetad
-  action: template src=../templates/etc/ganglia/gmetad.conf dest=/etc/ganglia/gmetad.conf
+  action: template src=templates/etc/ganglia/gmetad.conf dest=/etc/ganglia/gmetad.conf
   notify:
       - restart gmetad
 
