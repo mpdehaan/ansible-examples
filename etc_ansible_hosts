@@ -1,0 +1,9 @@
+# example /etc/ansible/hosts file 
+
+[nodes]
+node1.example.com
+node2.example.com
+node3.example.com
+
+[monitoring]
+ganglia.example.com
