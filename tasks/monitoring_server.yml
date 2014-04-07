@@ -18,7 +18,7 @@
 
 - action: service name=$item state=running
   with_items:
-      - ganglia
+      - gmond
       - httpd
       - gmetad
 
