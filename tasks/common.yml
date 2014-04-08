@@ -8,8 +8,8 @@
 - name: python-simplejson should be installed
   action: yum pkg=python-simplejson state=installed
 
-- name: $item should be installed
-  action: yum pkg=$item state=installed
+- name: "{{ item }} should be installed"
+  action: yum pkg={{ item }} state=installed
   with_items:
      - ntp
      - ntpdate
