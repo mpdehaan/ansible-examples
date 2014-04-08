@@ -15,8 +15,9 @@
 # (and just for this demo, also include the monitoring server
 # in that list)
 
-- hosts: nodes;ganglia.example.com
-  user: root
+- hosts: real-workers1:masters
+  user: updates
+  sudo: yes
   tasks:
      # what roles to apply?
      - include: tasks/common.yml
@@ -30,11 +31,14 @@
 # configure yum.repos.d but this is left off to keep
 # the example short.
 
-- hosts: ganglia.example.com
-  user: root
+- hosts: masters
+  user: updates
+  sudo: yes
   vars:
      # ganglia requires a node running gmetad to talk to.
-     one_node_in_ganglia_cluster: ganglia.example.com
+     cluster_groups:
+       - real-workers1
+       - masters
   tasks:
      # what roles to apply?
      - include: tasks/common.yml
